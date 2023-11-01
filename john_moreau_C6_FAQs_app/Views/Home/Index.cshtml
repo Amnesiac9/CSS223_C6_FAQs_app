@@ -1,8 +1,52 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model List<FAQ>
+<div>
+    <div class="row mb-1 mt-5">
+        <div class="col-3">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        </div>
+        <div class="col-9">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">All FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Bootstrap</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">C#</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Javascript</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
+<div>
+    <nav>
+        <ul class="list-group">
+            <li class="list-group-item interactive-list-item col-2">
+                <a class="text-decoration-none col-2" asp-controller="Home" asp-action="Home">General</a>
+            </li>
+            <li class="list-group-item interactive-list-item col-2">
+                <a class="text-decoration-none " asp-controller="Home" asp-action="Home">History</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <ul class="list-group">
+        @foreach (var faq in Model)
+        {
+            <li>
+                <div>
+                    <strong>@faq.Question</strong>
+                </div>
+            </li>
+        }
+        </ul>
+    </main>
+</div>
+
