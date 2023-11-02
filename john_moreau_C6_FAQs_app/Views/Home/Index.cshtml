@@ -1,59 +1,74 @@
-﻿@{
+﻿@*
+* John Moreau
+* CSS233
+* 11/1/2023
+*@
+
+@{
     ViewData["Title"] = "Home Page";
 }
 @model List<FAQ>
 <div>
     <div class="row mb-1 mt-5">
         <div class="col-3">
-
+            <!--spaceholder-->
         </div>
         <div class="col-9">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">All FAQs</a>
+                    <a class="nav-link text-black fw-bold" href="#">All FAQs</a> @* TODO: Switch the text-black and fw-bold based on active search*@
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Bootstrap</a>
+                    <a class="nav-link text-muted" href="#">Bootstrap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">C#</a>
+                    <a class="nav-link text-muted" href="#">C#</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Javascript</a>
+                    <a class="nav-link text-muted" href="#">Javascript</a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-<div>
-    <nav>
-        <ul class="list-group">
-            <li class="list-group-item interactive-list-item col-2">
-                <a class="text-decoration-none col-2" asp-controller="Home" asp-action="Home">General</a>
-            </li>
-            <li class="list-group-item interactive-list-item col-2">
-                <a class="text-decoration-none " asp-controller="Home" asp-action="Home">History</a>
-            </li>
-        </ul>
-    </nav>
-    <main>
-        <ul class="list-group">
-        @foreach (var faq in Model)
-        {
-            <li>
-                <div>
-                    <strong>@faq.Question</strong> @faq.Answer
-                    <br>
-                    <div>
-                        Topic: @faq.Topic
-                    </div>
-                    <div>
-                        Category: @faq.Category
-                    </div>
-                </div>
-            </li>
-        }
-        </ul>
-    </main>
+<div class="">
+    <div class="row">
+        <nav class="col-3 ">
+            <ul class="list-group">
+                <li class="list-group-item interactive-list-item">
+                    <a class="text-decoration-none" asp-controller="Home" asp-action="Home">General</a>
+                </li>
+                <li class="list-group-item interactive-list-item">
+                    <a class="text-decoration-none" asp-controller="Home" asp-action="Home">History</a>
+                </li>
+            </ul>
+        </nav>
+        <main class="col-9">
+            <ul class="list-group">
+                @foreach (var faq in Model)
+                {
+                    <li class="list-group-item interactive-list-item">
+                        <div>
+                            <div class="row">
+                                <p class="">
+                                    <strong>@faq.Question</strong> <span class="">@faq.Answer</span>
+                                </p>
+                                <br>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-muted">
+                                    Topic: @faq.Topic
+                                </div>
+                                <div class="col-6 text-muted">
+                                    Category: @faq.Category
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                }
+            </ul>
+        </main>
+    </div>
 </div>
 

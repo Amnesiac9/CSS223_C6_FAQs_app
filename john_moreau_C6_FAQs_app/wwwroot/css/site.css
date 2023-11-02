@@ -1,3 +1,12 @@
+
+/*
+* John Moreau
+* CSS233
+* 11/1/2023
+*
+*
+*/
+
 html {
   font-size: 14px;
 }
@@ -15,4 +24,8 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.container-custom {
+    margin: 0rem 3rem 0rem 3rem;
 }

@@ -6,16 +6,15 @@ namespace john_moreau_C6_FAQs_app.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private FAQContext Context { get; set; }
+
+        public HomeController(FAQContext ctx) => Context = ctx;
+
 
         public IActionResult Index()
         {
-            return View();
+            return View(Context.FAQs.ToList());
         }
 
         public IActionResult Privacy()
