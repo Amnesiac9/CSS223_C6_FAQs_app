@@ -16,16 +16,20 @@
         <div class="col-9">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link text-black fw-bold" href="#">All FAQs</a> @* TODO: Switch the text-black and fw-bold based on active search*@
+                    <a asp-action="Index" asp-route-topic="" asp-route-category="" class="nav-link text-black fw-bold">
+                        All FAQs
+                    </a> @* TODO: Switch the text-black and fw-bold based on active search*@
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-muted" href="#">Bootstrap</a>
+                    <a asp-action="Index" asp-route-topic="bs" asp-route-category="@ViewData["Category"]" class="nav-link text-muted">Bootstrap</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-muted" href="#">C#</a>
+                    <a asp-action="Index" asp-route-topic="cs" asp-route-category="@ViewData["Category"]" class="nav-link text-muted">
+                        C#
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-muted" href="#">Javascript</a>
+                    <a asp-action="Index" asp-route-topic="js" asp-route-category="@ViewData["Category"]" class="nav-link text-muted">Javascript</a>
                 </li>
             </ul>
         </div>
@@ -36,10 +40,10 @@
         <nav class="col-3 ">
             <ul class="list-group">
                 <li class="list-group-item interactive-list-item">
-                    <a class="text-decoration-none" asp-controller="Home" asp-action="Home">General</a>
+                    <a class="text-decoration-none" asp-controller="Home" asp-action="Index" asp-route-topic="@ViewData["Topic"]" asp-route-category="gen">General</a>
                 </li>
                 <li class="list-group-item interactive-list-item">
-                    <a class="text-decoration-none" asp-controller="Home" asp-action="Home">History</a>
+                    <a class="text-decoration-none" asp-controller="Home" asp-action="Index" asp-route-topic="@ViewData["Topic"]" asp-route-category="hist">History</a>
                 </li>
             </ul>
         </nav>
@@ -57,10 +61,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-6 text-muted">
-                                    Topic: @faq.Topic
+                                    Topic: @faq.Topic?.Name
                                 </div>
                                 <div class="col-6 text-muted">
-                                    Category: @faq.Category
+                                    Category: @faq.Category?.Name
                                 </div>
                             </div>
 

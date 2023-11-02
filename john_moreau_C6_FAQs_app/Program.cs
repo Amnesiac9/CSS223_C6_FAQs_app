@@ -35,8 +35,25 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "both",
+    pattern: "{controller=Home}/{action=Index}/topic/{topic?}/category/{category?}"
+);
+
+app.MapControllerRoute(
+    name: "topic",
+    pattern: "{controller=Home}/{action=Index}/topic/{topic?}"
+);
+
+app.MapControllerRoute(
+    name: "category",
+    pattern: "{controller=Home}/{action=Index}/category/{category?}"
+);
+
+
+
+app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}"
+    pattern: "{controller=Home}/{action=Index}"
 );
 
 app.Run();

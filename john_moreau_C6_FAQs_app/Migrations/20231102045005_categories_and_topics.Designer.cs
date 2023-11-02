@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using john_moreau_C6_FAQs_app.Models;
 
@@ -10,9 +11,11 @@ using john_moreau_C6_FAQs_app.Models;
 namespace john_moreau_C6_FAQs_app.Migrations
 {
     [DbContext(typeof(FAQContext))]
-    partial class FAQContextModelSnapshot : ModelSnapshot
+    [Migration("20231102045005_categories_and_topics")]
+    partial class categories_and_topics
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

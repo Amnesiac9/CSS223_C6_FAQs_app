@@ -1,5 +1,6 @@
 ﻿using john_moreau_C6_FAQs_app.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace john_moreau_C6_FAQs_app.Controllers
@@ -12,9 +13,34 @@ namespace john_moreau_C6_FAQs_app.Controllers
         public HomeController(FAQContext ctx) => Context = ctx;
 
 
-        public IActionResult Index()
+        //public IActionResult Index()
+        //{
+        //    return View(Context.FAQs.ToList());
+        //}
+
+        public IActionResult Index(string topic, string category)
         {
-            return View(Context.FAQs.ToList());
+
+            var faqs = Context.FAQs.Include(f => f.Category).Include(f => f.Topic);
+            
+            if (!string.IsNullOrEmpty(topic) && !string.IsNullOrEmpty(category))
+            {
+                ViewData["Topic"] = topic;
+                ViewData["Category"] = topic;
+                return View(faqs.Where(f => f.TopicId == topic && f.CategoryId == category).ToList());
+            }
+            else if (!string.IsNullOrEmpty(topic))
+            {
+                ViewData["Topic"] = topic;
+                return View(faqs.Where(f => f.TopicId == topic).ToList());
+            }
+            else if (!string.IsNullOrEmpty(category))
+            {
+                ViewData["Category"] = topic;
+                return View(faqs.Where(f => f.CategoryId == category).ToList());
+            }
+
+            return View(faqs.ToList());
         }
 
         public IActionResult Privacy()
