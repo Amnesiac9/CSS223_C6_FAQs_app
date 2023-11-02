@@ -1,4 +1,11 @@
 ﻿namespace john_moreau_C6_FAQs_app.Models
+/*
+* John Moreau
+* CSS233
+* 11/1/2023
+*
+*
+*/
 {
     public class FAQ
     {

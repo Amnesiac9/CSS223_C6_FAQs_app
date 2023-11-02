@@ -2,6 +2,14 @@ using Microsoft.EntityFrameworkCore;
 using john_moreau_C6_FAQs_app.Models;
 using Microsoft.AspNetCore.Routing.Constraints;
 
+/*
+* John Moreau
+* CSS233
+* 11/1/2023
+*
+*
+*/
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -38,7 +46,7 @@ app.UseAuthorization();
 
 
 
-
+// Custom Routing to show topic and category in URL. Remove "?" to skip this route if they are null or empty.
 app.MapControllerRoute(
     name: "both",
     pattern: "{controller=Home}/{action=Index}/topic/{topic}/category/{category}"

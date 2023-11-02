@@ -2,7 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-
+/*
+* John Moreau
+* CSS233
+* 11/1/2023
+*
+*
+*/
 namespace john_moreau_C6_FAQs_app.Controllers
 {
     public class HomeController : Controller
@@ -11,12 +17,6 @@ namespace john_moreau_C6_FAQs_app.Controllers
         private FAQContext Context { get; set; }
 
         public HomeController(FAQContext ctx) => Context = ctx;
-
-
-        //public IActionResult Index()
-        //{
-        //    return View(Context.FAQs.ToList());
-        //}
 
         public IActionResult Index(string topic, string category)
         {
