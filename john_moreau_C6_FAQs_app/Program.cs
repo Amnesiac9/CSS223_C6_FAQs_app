@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using john_moreau_C6_FAQs_app.Models;
+using Microsoft.AspNetCore.Routing.Constraints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,22 +35,24 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
+
+
 app.MapControllerRoute(
     name: "both",
-    pattern: "{controller=Home}/{action=Index}/topic/{topic?}/category/{category?}"
+    pattern: "{controller=Home}/{action=Index}/topic/{topic}/category/{category}"
 );
 
 app.MapControllerRoute(
     name: "topic",
-    pattern: "{controller=Home}/{action=Index}/topic/{topic?}"
+    pattern: "{controller=Home}/{action=Index}/topic/{topic}"
 );
 
 app.MapControllerRoute(
     name: "category",
-    pattern: "{controller=Home}/{action=Index}/category/{category?}"
+    pattern: "{controller=Home}/{action=Index}/category/{category}"
 );
-
-
 
 app.MapControllerRoute(
     name: "default",
