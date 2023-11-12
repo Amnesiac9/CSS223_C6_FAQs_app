@@ -26,7 +26,7 @@ namespace john_moreau_C6_FAQs_app.Controllers
             if (!string.IsNullOrEmpty(topic) && !string.IsNullOrEmpty(category))
             {
                 ViewData["Topic"] = topic;
-                ViewData["Category"] = topic;
+                ViewData["Category"] = category;
                 return View(faqs.Where(f => f.TopicId == topic && f.CategoryId == category).ToList());
             }
             else if (!string.IsNullOrEmpty(topic))
@@ -36,7 +36,7 @@ namespace john_moreau_C6_FAQs_app.Controllers
             }
             else if (!string.IsNullOrEmpty(category))
             {
-                ViewData["Category"] = topic;
+                ViewData["Category"] = category;
                 return View(faqs.Where(f => f.CategoryId == category).ToList());
             }
 
